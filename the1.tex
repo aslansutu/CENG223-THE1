@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+%misc libraries goes here
+\usepackage{fitch}
+
+
+\begin{document}
+
+\section*{Student Information }
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Atakan Onol \\
+Id Number : 2102648 \\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+a)
+\begin{table}[H]
+    \small
+    \centering
+    \textbf{$\varphi = ((p \rightarrow \neg q) \iff (p \rightarrow q))$} \\
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+            \textbf{$p$} & \textbf{$q$} & \textbf{$\neg q$} & \textbf{$p \rightarrow \neg q$} & \textbf{$p \iff q$} & \textbf{$\varphi$} \\
+        \hline
+        \hline
+            T & T & F & F & T & F \\
+            T & F & T & T & F & F \\
+            F & T & F & T & F & F \\
+            F & F & T & T & T & T \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\noindent
+b)
+\begin{table}[H]
+    \small
+    \centering
+    \textbf{$\varphi = (((p \vee q) \wedge (p \rightarrow r) \wedge (q \rightarrow r)) \rightarrow r$)} \\
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+            \textbf{$p$} & \textbf{$q$} & \textbf{$r$} & \textbf{$p \vee q$} & \textbf{$p \rightarrow r$} & \textbf{$q \rightarrow r$} & \textbf{($p \vee q) \wedge (p \rightarrow r) \wedge (q \rightarrow r)$} & \textbf{$\varphi$} \\
+        \hline
+        \hline
+                T & T & T & T & T & T & T & T \\
+                T & T & F & T & F & F & F & T \\
+                T & F & T & T & T & T & T & T \\
+                T & F & F & T & F & T & F & T \\
+                F & T & T & T & T & T & T & T \\
+                F & T & F & T & T & F & F & T \\
+                F & F & T & F & T & T & F & T \\
+                F & F & F & F & T & T & F & T \\
+        \hline
+    \end{tabular}
+\end{table}
+    
+\section*{Answer 2}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{*5{l}}
+        $\neg p \rightarrow (q \rightarrow r)$ & $\equiv$ & $\neg \neg p \vee (q \rightarrow r)$ & & \textit{table 7 - first row} \\
+        $\neg \neg p \vee (q \rightarrow r)$ & $\equiv$ & $p \vee (q \rightarrow r)$ & & \textit{double negation} \\
+        $p \vee (q \rightarrow r)$ & $\equiv$ & $p \vee (\neg q \vee r)$ & & \textit{table 7 - first row} \\
+        $p \vee (\neg q \vee r)$ & $\equiv$ & $(\neg q \vee r) \vee p$ & & \textit{commutative law} \\
+        $(\neg q \vee r) \vee p$ & $\equiv$ & $\neg q \vee (p \vee r)$ & & \textit{associative law} \\
+        $\neg q \vee (p \vee r)$ & $\equiv$ & $q \rightarrow (p \vee r)$ & & \textit{table 7 - first row}
+    \end{tabular}
+\end{table}
+
+\section*{Answer 3}
+$a) \forall x L(x, Burak)$ \\ \\
+$b) \forall y L(Hazal, y)$ \\ \\
+$c) \forall x \exists y L(x, y)$ \\ \\
+$d) \neg \exists x \forall y L(x,y)$ \\ \\
+$e) \exists x \forall y L(x, y)$ \\ \\
+$f) \neg \exists x (L(x, Burak) \wedge L(x, Mustafa))$ \\ \\
+$g) \exists x \exists y \exists z (L(Ceren, x) \wedge L(Ceren, y) \wedge (x \neq y) \wedge (L(Ceren, z) \rightarrow (z = x \vee z = y)))$ \\ \\
+$h) \forall x \exists y \exists z (L(x, y) \wedge (L(x, z) \rightarrow (z = y))$ \\ \\
+$i) \forall x \neg L(x, x))$ \\ \\
+$j) \exists x \exists y \exists z (L(x,y) \wedge L(x, x) \wedge (x \neq y) \wedge (L(x,z) \rightarrow ((z=x) \vee (z=y))))$ \\ \\
+
+\section*{Answer 4}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{*5{l}}
+         $1$ & & $p$ & \textit{premise} & \\
+         $2$ & & $p \rightarrow (r \rightarrow q)$ & \textit{premise} & \\
+         $3$ & & $r \rightarrow q$ & $\rightarrow_e, 1, 2$ & \\
+          
+         \cline{2-5}
+         $4$ & \multicolumn{1}{|c}{} & $\neg q$ & \textit{assumption} & \multicolumn{1}{c|}{} \\
+         $5$ & \multicolumn{1}{|c}{} & $\neg r$ & $\rightarrow_e, 3, 4$ & \multicolumn{1}{c|}{}\\
+         \cline{2-5}
+         
+         $6$ &  & $\neg q \rightarrow \neg r$ & $\rightarrow_i, 4, 5$ & \\
+         $7$ & & $\neg q \rightarrow (s \vee \neg r)$ & $\vee_i, 4$  & \\
+    \end{tabular}
+\end{table}
+
+\section*{Answer 5}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{*6{l}}
+		$1$ & & & $\forall x(p(x) \rightarrow q(x))$ & \textit{premise} & \\
+		$2$ & & & $\exists y p(y) \vee r(a)$ & \textit{premise} & \\ 
+		$3$ & & & $\neg \exists z (z)$ & \textit{premise} & \\ 
+        
+        \cline{2-6}
+        $4$ & \multicolumn{1}{|c}{} & $x_0$ & $r(x_0)$ & \textit{assumption} & \multicolumn{1}{c|}{} \\
+        $5$ & \multicolumn{1}{|c}{} & & $\exists z r(x_0)$ & $\exists_i, 4$ & \multicolumn{1}{c|}{} \\
+        $6$ & \multicolumn{1}{|c}{} & & $\bot$ & \textit{contradiction, 3, 5} & \multicolumn{1}{c|}{} \\
+        $7$ & \multicolumn{1}{|c}{} & & $\neg r(x_0)$ & $\neg_i, 4, 6$ & \multicolumn{1}{c|}{} \\
+        \cline{2-6}
+        
+        $8$ & & & $\forall z \neg r(z)$ & $\forall_i, 7$ & \\
+        
+        \cline{2-6}
+        $9$ & \multicolumn{1}{|c}{} & & $r(a)$ & \textit{assumption} & \multicolumn{1}{c|}{} \\
+        $10$ & \multicolumn{1}{|c}{} & $a$ & $\neg r(a)$ & $\forall_e, 8$ & \multicolumn{1}{c|}{}\\
+        $11$ & \multicolumn{1}{|c}{} & & $\bot$ & \textit{contradiction, 9, 10} & \multicolumn{1}{c|}{} \\
+        \cline{2-6}
+        
+        $12$ & & & $\exists y p(y)$ & $\vee_e, 9-11$ & \\
+        
+        \cline{2-6}
+        $13$ & \multicolumn{1}{|c}{} & $x_1$ & $p(x_1)$ & \textit{assumption} & \multicolumn{1}{c|}{} \\
+        $14$ & \multicolumn{1}{|c}{} & & $p(x_1) \rightarrow q(x1)$ & $\forall_e, 1$ & \multicolumn{1}{c|}{} \\
+        $15$ & \multicolumn{1}{|c}{} & & $q(x_1)$ & $\rightarrow_e, 9, 10$ & \multicolumn{1}{c|}{} \\
+        \cline{2-6}
+        
+        $16$ & & & $\exists z q(z)$ & $\exists_i, 9-11$ & \\
+	\end{tabular}
+\end{table}
+
+
+\end{document}
